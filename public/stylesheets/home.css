@@ -1,0 +1,98 @@
+html, body {
+    height: 100%
+}
+
+.headerinfo {
+    height: 65px;
+    background-color: #1652f0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+.wrapper {
+    width: 15%;
+    height: 100%;
+    background: #334466;
+    position: absolute;
+}
+.wrapper .sidebar ul li {
+    padding: 15px;
+    border-bottom: 1px solid #bdb8d7;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.wrapper .sidebar ul a li {
+    text-align: center;
+
+}
+.wrapper .sidebar ul a li {
+    color: #bdb8d7;
+    display: block;
+}
+
+.wrapper .sidebar ul li:hover {
+    background-color: #ff6d65;
+}
+
+
+.wrapper .sidebar ul a li:hover {
+    color: #fff;
+}
+
+
+.right {
+    width: 85%;
+    float: right;
+    height: 100%;
+}
+
+.WelcomeUser {
+    font-size: 16px;
+    padding-right: 10px;
+    color: white;
+    float: right;
+    padding-top: 21px;
+}
+.HeadLogout {
+    font-size: 16px;
+    padding-right:35px ;
+    color: white;
+    float: right;
+    padding-top: 21px;
+}
+.filesDiv{
+    padding-left: 10%;
+    padding-top: 5%;
+}
+.gridtable {
+    font-family: verdana, arial, sans-serif;
+    font-size: 11px;
+    color: #333333;
+    border-width: 1px;
+    border-color: #666666;
+    border-collapse: collapse;
+    margin-top: 20px;
+    margin-left: 50px;
+}
+
+table th {
+    border-width: 1px;
+    padding: 8px;
+    border-style: solid;
+    border-color: #666666;
+    background-color: #dedede;
+    margin-left:  10%;
+}
+
+table  td {
+    border-width: 1px;
+    padding: 8px;
+    border-style: solid;
+    border-color: #666666;
+    background-color: #ffffff;
+}
