@@ -1,0 +1,59 @@
+{% extends "views/admin/index.html" %}
+{% block right %}
+<style>
+    a:link {
+        color: dodgerblue;
+    }
+
+    a:visited {
+        color: dodgerblue
+    }
+
+    a:hover {
+        color: dodgerblue
+    }
+
+    a:active {
+        color: dodgerblue
+    }
+</style>
+
+<div class="col-12">
+    <div class="card">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>用户名</th>
+                        <th>回复内容</th>
+                        <th>回复文章</th>
+                        <th>回复时间</th>
+                        <th align="center">操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for comment in comments %}
+                    <tr>
+                        <td >{{comment.id}}</td>
+                        {% if comment.username == null%}
+                        <td>游客</td>
+                        {% else %}
+                        <td>{{comment.username}}</td>
+                        {% endif %}
+                        <td>{{comment.comment}}</td>
+                        <td>{{comment.title}}</td>
+                        <td>{{comment.comment_createtime}}</td>
+                        <td>
+                            <a href="/admin/deleteComment?id={{comment.id}}">删除</a>
+                        </td>
+                    </tr>
+                    </tbody>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

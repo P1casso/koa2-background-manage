@@ -1,0 +1,9 @@
+{% extends "views/user/indexInformation.html" %}
+{% block right %}
+{{message}}
+<form action="/becomeAuthor?roleid=2" method="post" id="searchInfo" enctype="multipart/form-data">
+    申请成为作者<br>
+    <input type="checkbox" value="2"> 同意遵守协议 <br>
+    <button onclick="submit()">提交</button>
+</form>
+{% endblock %}

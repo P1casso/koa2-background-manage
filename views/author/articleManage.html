@@ -1,0 +1,63 @@
+{% extends "views/author/authorIndex.html" %}
+{% block right %}
+<div id="searchArticle">
+    <div class="col-12">
+        <form action="/admin/searchArticle" method="post" id="searchInfo" enctype="multipart/form-data">
+            <p style="color: red">{{info}}</p>
+            <div class="form-group">
+                <div class="input-group w-25">
+                    <input type="text" class="form-control" placeholder="标题" aria-label="Recipient's username"
+                           name="title">&nbsp;
+                    <div class="input-group-append">
+                        <button class="btn btn-sm btn-primary " type="button" onclick="submit()">搜索</button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<div class="col-12">
+    <div class="card">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>UID</th>
+                        <th>标题</th>
+                        <th>发布时间</th>
+                        <th>状态</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for article in articles %}
+                    <tr>
+                        <td>{{article.id}}</td>
+                        <td>{{article.title}}</td>
+                        <td>{{article.addtime}}</td>
+                        {% if article.isAudit == 0 %}
+                        <td><label class="badge badge-warning">待审核</label></td>
+                        {% elif article.isAudit == 1 %}
+                        <td><label class="badge badge-success">通过</label></td>
+                        {% elif article.isAudit == 2 %}
+                        <td><label class="badge badge-danger">违规</label></td>
+                        {% endif %}
+                        <td><a href="/admin/previewArticle?id={{article.id}}">预览</a> |
+                            <a href="/author/deleteArticle/?id={{article.id}}">删除</a> |
+                            <a href="/author/editArticle?id={{article.id}}">编辑</a>
+                        </td>
+                    </tr>
+                    </tbody>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

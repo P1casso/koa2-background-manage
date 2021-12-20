@@ -1,0 +1,199 @@
+﻿<!doctype html>
+<html class="no-js" lang="zxx">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Newpress - Blog HTML Template</title>
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+
+    <link rel="stylesheet" href="/public/stylesheets/bootstrap.min.css">
+    <link rel="stylesheet" href="/public/stylesheets/animate.min.css">
+    <link rel="stylesheet" href="/public/stylesheets/magnific-popup.css">
+    <link rel="stylesheet" href="/public/stylesheets/all.min.css">
+    <link rel="stylesheet" href="/public/stylesheets/flaticon.css">
+    <link rel="stylesheet" href="/public/stylesheets/dripicons.css">
+    <link rel="stylesheet" href="/public/stylesheets/slick.css">
+    <link rel="stylesheet" href="/public/stylesheets/meanmenu.css">
+    <link rel="stylesheet" href="/public/stylesheets/default.css">
+    <link rel="stylesheet" href="/public/stylesheets/style.css">
+    <link rel="stylesheet" href="/public/stylesheets/responsive.css">
+    <style>
+    </style>
+</head>
+<body>
+
+<header class="header-area header-area2">
+    <div class="header-top second-header d-none d-lg-block">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 col-md-6 d-none  d-md-block">
+                </div>
+                <div class="col-lg-3 col-md-3 d-none d-lg-block">
+                    <a href="#" class="top-btn"><i class="fal fa-calendar-alt"></i> 日期</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div id="header-sticky" class="menu-area">
+        <div class="container">
+            <div class="second-menu">
+                <div class="row align-items-center">
+                    <div class="col-xl-2 col-lg-2">
+                    </div>
+                    <div class="col-xl-8 col-lg-7">
+
+                        <div class="main-menu text-right text-xl-right">
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-xl-2 col-lg-3 d-none d-lg-block mt-20 mb-20">
+                        <div class="header-social text-right">
+                            <span>
+                                <a href="/login" title="登录"><i class="fa fa-user"></i></a>
+                                <a href="#" class="menu-tigger"><i class="fas fa-search"></i></a>
+                               </span>
+                        </div>
+
+                    </div>
+
+                    <div class="col-12">
+                        <div class="mobile-menu"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main>
+
+    <div class="modal fade bs-example-modal-lg search-bg popup1" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content search-popup">
+                <div class="text-center">
+                    <a href="#" class="close2" data-dismiss="modal" aria-label="Close">× close</a>
+                </div>
+                <div class="row search-outer">
+                    <div class="col-md-11"><input type="text" placeholder="Search for products..."/></div>
+                    <div class="col-md-1 text-right"><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="breadcrumb-area d-flex align-items-center">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-xl-12 col-lg-12">
+                    <div class="breadcrumb-wrap text-left">
+                        <div class="breadcrumb-title">
+                            <h2 style="color: black">{{article.title}}</h2>
+                            <div class="breadcrumb-wrap">
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item">{{article.author}}</li>
+                                        <li class="breadcrumb-item active" aria-current="page">{{article.addtime}}</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <section class="project-detail">
+        <div class="container">
+            <div class="upper-box">
+                <div class="single-item-carousel owl-carousel owl-theme">
+                    <figure class="image"><img src="{{article.picture}}" style="width:50%;height:50%">{{article.picture}}
+                    </figure>
+                    <img src="{{article.author}}"></img>
+                </div>
+            </div>
+
+            <div class="lower-content">
+                <div class="row">
+                    <div class="text-column col-lg-12 col-md-12 col-sm-12">
+                        <div class="inner-column">
+                            <p>{{article.content|safe}}</p>
+                            <!--必须加上safe不然不转译html-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+        </div>
+    </section>
+    <form class="forms-sample" action="/submitComments?id={{article.id}}" method="post" enctype="multipart/form-data">
+        <div class=" container">
+            <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;写个友善的评论吧！</h5>
+            <br>
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="contact-field p-relative c-message mb-45">
+                    <textarea name="comment" id="comment" cols="10" rows="5" placeholder="快来说两句吧"></textarea>
+                </div>
+                <div class="slider-btn">
+                    <button class="btn ss-btn" data-animation="fadeInRight" data-delay=".8s" type="submit">发表评论</button>
+                </div>
+            </div>
+        </div>
+    </form>
+    <br>
+    <br>
+    <div class=" container">
+        <h5>&nbsp;&nbsp;&nbsp;所有评论</h5>
+        <br> {% if comments == null %}
+        <p style="text-align: center">还没有用户评论，快来抢沙发吧</p>
+        {% else %}
+        {% for comment in comments %}
+        <div class="card">
+            <div class="card-header">
+                {% if comment.comment_userid == '0' %}
+                <h6 class="mb-0">
+                    游客
+                </h6>
+                {% else %}
+                <h6 class="mb-0">
+                    {{comment.comment_userid}}
+                </h6>
+                {% endif %}
+            </div>
+            <div class="card-body">
+                {{comment.comment}}
+            </div>
+        </div>
+        <br>
+
+        {%endfor%}
+        {% endif %}
+    </div>
+</main>
+
+<br>
+<br>
+<br>
+<div class="copyright-wrap">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script src="/public/javascripts/modernizr-3.5.0.min.js"></script>
+<script src="/public/javascripts/jquery-3.6.0.min.js"></script>
+
+<script src="/public/javascripts/bootstrap.min.js"></script>
+<script src="/public/javascripts/slick.min.js"></script>
+<script src="/public/javascripts/jquery.meanmenu.min.js"></script>
+<script src="/public/javascripts/main.js"></script>
+</body>
+</html>

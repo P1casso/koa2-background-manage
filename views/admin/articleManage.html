@@ -1,0 +1,76 @@
+{% extends "views/admin/index.html" %}
+{% block right %}
+<div id="searchArticle">
+    <div class="col-12">
+        <form action="/admin/searchArticle" method="post" id="searchInfo" enctype="multipart/form-data">
+            <p style="color: red">{{info}}</p>
+            <div class="form-group">
+                <div class="input-group w-25">
+                    <input type="text" class="form-control" placeholder="标题" aria-label="Recipient's username"
+                           name="title">&nbsp;
+                    <input type="text" class="form-control ml-2" placeholder="作者" aria-label="Recipient's username"
+                           name="author">
+                    <select class="form-control ml-3" name="type" >
+                        <option>请选择</option>
+                        {% for type in types %}
+                        <option value="{{type.id}}">{{type.typename}}</option>
+                        {% endfor %}
+                    </select>
+                    <div class="input-group-append">
+                        <button class="btn btn-sm btn-primary ml-3" type="button" onclick="submit()">搜索</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="col-12">
+    <div class="card">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>UID</th>
+                        <th>标题</th>
+                        <th>作者</th>
+<!--                        <th>日期</th>-->
+                        <th>状态</th>
+                        <th>操作</th>
+                        <th>审核</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for article in articles %}
+                    <tr>
+                        <td>{{article.id}}</td>
+                        <td><a href="/admin/previewArticle?id={{article.id}}">{{article.title}}</a></td>
+                        <td>{{article.author}}</td>
+<!--                        <td>{{article.addtime}}</td>-->
+
+                        {% if article.isAudit == 0 %}
+                        <td><label class="badge badge-warning">待审核</label></td>
+                        {% elif article.isAudit == 1 %}
+                        <td><label class="badge badge-success">通过</label></td>
+                        {% elif article.isAudit == 2 %}
+                        <td><label class="badge badge-danger">违规</label></td>
+                        {% endif %}
+                        <td><a href="/deleteArticle/{{article.id}}" onclick="if(confirm('确认删除吗？')==false)return false;">删除</a>
+                            </td>
+                        {% if article.isAudit == 0 %}
+                        <td> <a href="/admin/approved?id={{article.id}}">通过</a>  |
+                            <a href="/admin/violation?id={{article.id}}">违规</a></td>
+                        {% elif article.isAudit == 2 %}
+                        <td> <a href="/admin/approved?id={{article.id}}">重新设置为通过</a>
+                        {% else %}
+                        <td> 已审核</td>
+                        {% endif %}
+                    </tr>
+                    </tbody>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

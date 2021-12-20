@@ -1,0 +1,1 @@
+GETNEWSBYTYPENUM:`${BASE_URL}/admin/getNewsByTypeNum`

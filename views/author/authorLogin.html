@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <title>作者登录</title>
+
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link href="../public/stylesheets/login.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<div class="signinform">
+    <h1>欢迎登录创作中心</h1>
+    <div class="container">
+        <div class="w3l-form-info">
+            <div class="w3_info">
+                <form action="/author/checkLogin" method="post" name="user" enctype="multipart/form-data">
+                    <p style="color: red">{{message}}</p>
+                    <div class="input-group">
+                        用户名：
+                        <span><i aria-hidden="true" class="fas fa-user"></i></span>
+                        <input autocomplete="off" name="username" type="text">
+                    </div>
+                    <div class="input-group">
+                        密码：
+                        <span><i aria-hidden="true" class="fas fa-key"></i></span>
+                        <input name="password" type="Password">
+                    </div>
+                    <button class="btn btn-primary btn-block" type="submit">Login</button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>

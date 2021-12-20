@@ -1,0 +1,82 @@
+{% extends "views/admin/index.html" %}
+{% block right %}
+<style>
+    a:link {
+        color: dodgerblue;
+    }
+
+    a:visited {
+        color: dodgerblue
+    }
+
+    a:hover {
+        color: dodgerblue
+    }
+
+    a:active {
+        color: dodgerblue
+    }
+</style>
+<div id="searchUser">
+    <div class="col-12">
+    <form action="/admin/searchUser" method="post" id="searchInfo" enctype="multipart/form-data">
+        <p style="color: red">{{info}}</p>
+        <div class="form-group">
+            <div class="input-group w-25">
+                <input type="text" class="form-control" placeholder="姓名" aria-label="Recipient's username" name="username">&nbsp;
+                <input type="text" class="form-control ml-2" placeholder="手机号" aria-label="Recipient's username" name="phone">
+                <div class="input-group-append">
+                    <button class="btn btn-sm btn-primary " type="button" onclick="submit()">搜索</button>
+
+                </div>
+
+            </div>
+
+        </div>
+    </form>
+
+</div>
+</div>
+
+<div class="col-12">
+    <div class="card">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>UID</th>
+                        <th>权限</th>
+                        <th>用户名</th>
+                        <th>电话号码</th>
+                        <th align="center">操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                      {% for user in users %}
+                    <tr>
+                        <td >{{user.id}}</td>
+                        {% if user.roleid== 1 %}
+                        <td>管理员</td>
+                        {% elif user.roleid== 2 %}
+                        <td>作者</td>
+                        {% elif user.roleid== 3 %}
+                        <td>普通用户</td>
+                        {% endif %}
+
+                        <td>{{user.username}}</td>
+                        <td>{{user.phone}}</td>
+                        <td>
+                            <a href="/admin/editUser?id={{user.id}}">修改用户</a>  |
+                            <a href="/admin/resetUserPass?id={{user.id}}">重置密码</a>  |
+                            <a href="/admin/deleteUser?id={{user.id}}">删除用户</a>
+                        </td>
+                    </tr>
+                    </tbody>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

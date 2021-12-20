@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>个人信息</title>
+    <link rel="stylesheet" href="../vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="../public/static/css/style.css">
+
+</head>
+<body>
+<div class="container-scroller">
+    <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+        <div class="navbar-brand-wrapper d-flex justify-content-center">
+            <div class="navbar-brand-inner-wrapper d-flex justify-content-between align-items-center w-100">
+                <h4>个人信息</h4>
+            </div>
+        </div>
+        <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
+
+            <ul class="navbar-nav navbar-nav-right">
+
+                <li class="nav-item nav-profile">
+                    <a class="nav-link" data-toggle="dropdown" id="profileDropdown">
+                        <span class="nav-profile-name">{{user.username}}</span>
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+    <div class="container-fluid page-body-wrapper">
+        <nav class="sidebar sidebar-offcanvas" id="sidebar">
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/myInfo">
+                        <i class="mdi mdi-account-box menu-icon"></i>
+                        <span class="menu-title">账号信息</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/editUser">
+                        <i class="mdi mdi-tooltip-edit menu-icon"></i>
+                        <span class="menu-title">信息修改</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/myComment">
+                        <i class="mdi mdi-comment menu-icon"></i>
+                        <span class="menu-title">评论管理</span>
+                    </a>
+                </li>
+                {% if user.roleid !=3 %}
+                <li class="nav-item">
+                    <a class="nav-link" href="author/articleManage">
+                        <i class="mdi mdi-pencil menu-icon"></i>
+                        <span class="menu-title">创作中心</span>
+                    </a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="/authorApply?id={{user.id}}">
+                        <i class="mdi mdi-account-plus menu-icon"></i>
+                        <span class="menu-title">作者入驻</span>
+                    </a>
+                </li>
+                {% endif %}
+                <li class="nav-item">
+                    <a class="nav-link" href="/">
+                        <i class="mdi mdi-backburger menu-icon"></i>
+                        <span class="menu-title">返回首页</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="main-panel">
+            <div class="content-wrapper">
+                {% block right %}
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

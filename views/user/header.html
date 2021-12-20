@@ -1,0 +1,74 @@
+{% extends "views/user/homeIndex.html" %}
+{% block top %}
+<header class="header-area header-area2">
+    <div class="header-top second-header d-none d-lg-block">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 col-md-6 d-none  d-md-block">
+                </div>
+                <div class="col-lg-3 col-md-3 d-none d-lg-block text-right">
+
+                </div>
+
+                <div class="col-lg-3 col-md-3" >
+                    {% if user.username == null %}
+                    <a href="/login" class="top-btn"><i class="fal fa-user-alt">登录</i></a>
+                    {% else %}
+                    <a class="top-btn"><i class="fal fa-user-alt"></i> 欢迎用户 ：{{user.username}}</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="header-sticky" class="menu-area">
+        <div class="container">
+            <div class="second-menu">
+                <div class="row align-items-center">
+                    <div class="col-xl-2 col-lg-2">
+                    </div>
+                    <div class="col-xl-8 col-lg-7">
+                        <div class="main-menu text-right text-xl-right">
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 d-none d-lg-block mt-20 mb-20">
+                        <div class="header-social text-right">
+                            <span>
+                                {% if user == null %}
+                                <a href="/login" title="{{user.username}}"><i class="fa fa-user"></i></a>
+                                {% else %}
+                                <a href="/myInfo" title="个人中心"><i
+                                        class="fa fa-user"></i></a>
+                                <a href="/logout" title="退出"><i class="fa fa-sign-out"></i></a>
+                                {% endif %}
+                                <a href="#" class="menu-tigger"><i class="fas fa-search"></i></a>
+                               </span>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="mobile-menu"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+{% block main %}
+{% endblock %}
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,113 @@
+{% extends "views/user/header.html" %}
+{% block main %}
+<main>
+    <div class="modal fade bs-example-modal-lg search-bg popup1" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content search-popup">
+                <div class="text-center">
+                    <a href="#" class="close2" data-dismiss="modal" aria-label="Close">× close</a>
+                </div>
+                <div class="row search-outer">
+                    <div class="col-md-11"><input type="text" placeholder="Search for products..."/></div>
+                    <div class="col-md-1 text-right"><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="breadcrumb-area d-flex align-items-center">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-xl-12 col-lg-12">
+                    <div class="breadcrumb-wrap text-left">
+                        <div class="breadcrumb-title">
+                            <h2 style="color: black">{{article.title}}</h2>
+                            <div class="breadcrumb-wrap">
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item">{{article.author}}</li>
+                                        <li class="breadcrumb-item active" aria-current="page">{{article.addtime}}</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="project-detail">
+        <div class="container">
+            <div class="upper-box">
+                <div class="single-item-carousel owl-carousel owl-theme">
+                    <figure class="image"><img src="{{article.picture}}" style="width:50%;height:50%"></figure>
+                </div>
+            </div>
+            <div class="lower-content">
+                <div class="row">
+                    <div class="text-column col-lg-12 col-md-12 col-sm-12">
+                        <div class="inner-column">
+                            <p>{{article.content|safe}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <form class="forms-sample" action="/submitComments?id={{article.id}}" method="post" enctype="multipart/form-data">
+        <div class=" container">
+            <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;写个友善的评论吧！</h5>
+            <br>
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="contact-field p-relative c-message mb-45">
+                    <textarea name="comment" id="comment" cols="10" rows="5" placeholder="快来说两句吧"></textarea>
+                </div>
+                <div class="slider-btn">
+                    <button class="btn ss-btn" data-animation="fadeInRight" data-delay=".8s" type="submit">发表评论</button>
+                </div>
+            </div>
+        </div>
+    </form>
+    <br>
+    <br>
+    <div class=" container">
+        <h5>&nbsp;&nbsp;&nbsp;所有评论</h5>
+        <br> {% if comments == null %}
+        <p style="text-align: center">还没有用户评论，快来抢沙发吧</p>
+        {% else %}
+        {% for comment in comments %}
+        <div class="card">
+            <div class="card-header" >
+                {% if comment.username == null %}
+                <h6 class="mb-0">
+                    游客&nbsp &nbsp &nbsp &nbsp;<h8 style="color: grey ;font-size: 10px">发表于：{{comment.comment_createtime}}</h8>
+                </h6>
+                {% else %}
+                <h6 class="mb-0">
+                    {{comment.username}}&nbsp &nbsp &nbsp &nbsp;<h8 style="color: grey ;font-size: 10px">发表于：{{comment.comment_createtime}}
+                </h6>
+                {% endif %}
+            </div><div class="card-body">
+            {{comment.comment}}
+        </div>
+        </div>
+        <br>
+        {%endfor%}
+        {% endif %}
+    </div>
+</main>
+<br>
+<br>
+<br>
+<!--footer-->
+<div class="copyright-wrap">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

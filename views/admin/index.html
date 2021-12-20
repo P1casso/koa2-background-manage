@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>后台管理</title>
+    <link rel="stylesheet" href="../vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="../public/static/css/style.css">
+</head>
+<body>
+<div class="container-scroller">
+    <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+        <div class="navbar-brand-wrapper d-flex justify-content-center">
+            <div class="navbar-brand-inner-wrapper d-flex justify-content-between align-items-center w-100">
+                <h4>后台管理</h4>
+            </div>
+        </div>
+        <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
+
+            <ul class="navbar-nav navbar-nav-right">
+
+                <li class="nav-item nav-profile">
+                    <a class="nav-link" data-toggle="dropdown" id="profileDropdown">
+                        <span class="nav-profile-name">{{username}}</span>
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+    <div class="container-fluid page-body-wrapper">
+        <nav class="sidebar sidebar-offcanvas" id="sidebar">
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin">
+                        <i class="mdi mdi-home menu-icon"></i>
+                        <span class="menu-title">Home</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin/userManage">
+                        <i class="mdi mdi-account menu-icon"></i>
+                        <span class="menu-title">用户管理</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin/addUser">
+                        <i class="mdi mdi-account-plus menu-icon"></i>
+                        <span class="menu-title">添加用户</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin/articleManage">
+                        <i class="mdi mdi-file-document menu-icon"></i>
+                        <span class="menu-title">文章管理</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="/admin/commentManage">
+                    <i class="mdi mdi-comment-processing menu-icon"></i>
+                    <span class="menu-title">评论管理</span>
+                </a>
+            </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin/CarouselManage">
+                        <i class="mdi mdi-view-carousel menu-icon"></i>
+                        <span class="menu-title">轮播图管理</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin/logout">
+                        <i class="mdi mdi-logout menu-icon"></i>
+                        <span class="menu-title">退出登录</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="main-panel">
+            <div class="content-wrapper">
+                {% block right %}
+               欢迎来到后台管理页面
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

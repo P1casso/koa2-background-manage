@@ -1,5 +1,5 @@
 {
-  "name": "Week10",
+  "name": "koa2-background-manage",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,24 +9,52 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
+    "@ckeditor/ckeditor5-upload": "^31.0.0",
+    "ckeditor4-angular": "^2.2.2",
     "debug": "^4.1.1",
+    "jsonwebtoken": "^8.5.1",
     "koa": "^2.7.0",
     "koa-bodyparser": "^4.2.1",
     "koa-convert": "^1.2.0",
     "koa-json": "^2.0.2",
     "koa-logger": "^3.2.0",
+    "koa-multer": "^1.0.2",
     "koa-onerror": "^4.1.0",
+    "koa-passport": "^4.1.4",
     "koa-router": "^7.4.0",
     "koa-session": "^6.2.0",
     "koa-static": "^5.0.0",
     "koa-views": "^6.2.0",
+    "koa2-cors": "^2.0.6",
     "md5": "^2.3.0",
     "mysql": "^2.18.1",
     "mysql2": "^2.3.2",
+    "node-uuid": "^1.4.8",
     "nunjucks": "^3.2.3",
-    "sequelize": "^6.8.0"
+    "passport-jwt": "^4.0.0",
+    "passport-local": "^1.0.0",
+    "sequelize": "^6.8.0",
+    "ueditor-backend": "^1.0.5"
   },
   "devDependencies": {
-    "nodemon": "^2.0.14"
-  }
+    "body-parser": "^1.19.0",
+    "koa-body": "^4.2.0",
+    "nodemon": "^2.0.14",
+    "uuid": "^8.3.2"
+  },
+  "main": "app.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/P1casso/koa2-background-manage.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/P1casso/koa2-background-manage/issues"
+  },
+  "homepage": "https://github.com/P1casso/koa2-background-manage#readme",
+  "description": ""
 }

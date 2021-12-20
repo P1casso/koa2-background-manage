@@ -1,0 +1,72 @@
+{% extends "views/user/indexInformation.html" %}
+{% block right %}
+<style>
+    a:link {
+        color: dodgerblue;
+    }
+
+    a:visited {
+        color: dodgerblue
+    }
+
+    a:hover {
+        color: dodgerblue
+    }
+
+    a:active {
+        color: dodgerblue
+    }
+</style>
+<div id="searchUser">
+
+    <div class="col-12">
+        <h style="color: red">{{result}}</h>
+        <form action="/admin/searchUser" method="post" id="searchInfo" enctype="multipart/form-data">
+            <p style="color: red">{{info}}</p>
+            <div class="form-group">
+                <div class="input-group w-25">
+                    <input type="text" class="form-control" placeholder="姓名" aria-label="Recipient's username" name="username">&nbsp;
+                    <input type="text" class="form-control ml-2" placeholder="手机号" aria-label="Recipient's username" name="phone">
+                    <div class="input-group-append">
+                        <button class="btn btn-sm btn-primary " type="button" onclick="submit()">搜索</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>
+
+<div class="col-12">
+    <div class="card">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>回复内容</th>
+                        <th>回复文章</th>
+                        <th>回复时间</th>
+                        <th align="center">操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for comment in comments %}
+                    <tr>
+                        <td >{{comment.id}}</td>
+                        <td>{{comment.comment}}</td>
+                        <td>{{comment.title}}</td>
+                        <td>{{comment.comment_createtime}}</td>
+                        <td>
+                            <a href="/admin/deleteComment?id={{comment.id}}">删除</a>
+                        </td>
+                    </tr>
+                    </tbody>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

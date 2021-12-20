@@ -19,6 +19,10 @@ module.exports = function (sequelize, DataTypes) {
                 type: DataTypes.STRING,
                 filed:'phone',
             },
+            salt:{
+                type: DataTypes.STRING,
+                filed:'salt',
+            }
         }
     )
 }

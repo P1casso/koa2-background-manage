@@ -1,0 +1,183 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Newpress - Blog HTML Template</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+    <!-- Place favicon.ico in the root directory -->
+
+    <!-- CSS here -->
+    <link rel="stylesheet" href="/public/stylesheets/bootstrap.min.css">
+    <link rel="stylesheet" href="/public/stylesheets/animate.min.css">
+    <link rel="stylesheet" href="/public/stylesheets/magnific-popup.css">
+    <link rel="stylesheet" href="/public/stylesheets/all.min.css">
+    <link rel="stylesheet" href="/public/stylesheets/flaticon.css">
+    <link rel="stylesheet" href="/public/stylesheets/dripicons.css">
+    <link rel="stylesheet" href="/public/stylesheets/slick.css">
+    <link rel="stylesheet" href="/public/stylesheets/meanmenu.css">
+    <link rel="stylesheet" href="/public/stylesheets/default.css">
+    <link rel="stylesheet" href="/public/stylesheets/style.css">
+    <link rel="stylesheet" href="/public/stylesheets/responsive.css">
+    <style>
+    </style>
+</head>
+<body>
+<!-- header -->
+<!--<header class="header-area header-area2">-->
+<!--&lt;!&ndash;    <div class="header-top second-header d-none d-lg-block">&ndash;&gt;-->
+<!--&lt;!&ndash;        <div class="container">&ndash;&gt;-->
+<!--&lt;!&ndash;            <div class="row align-items-center">&ndash;&gt;-->
+<!--&lt;!&ndash;                <div class="col-lg-6 col-md-6 d-none  d-md-block">&ndash;&gt;-->
+<!--&lt;!&ndash;                </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                <div class="col-lg-3 col-md-3 d-none d-lg-block text-right">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <i class="fal fa-cloud-sun"></i> 天气&ndash;&gt;-->
+<!--&lt;!&ndash;                </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                <div class="col-lg-3 col-md-3 d-none d-lg-block">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <a href="#" class="top-btn"><i class="fal fa-calendar-alt"></i> 日期</a>&ndash;&gt;-->
+<!--&lt;!&ndash;                </div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;            </div>&ndash;&gt;-->
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;    </div>&ndash;&gt;-->
+<!--    <div id="header-sticky" class="menu-area">-->
+<!--        <div class="container">-->
+<!--            <div class="second-menu">-->
+<!--                <div class="row align-items-center">-->
+<!--                    <div class="col-xl-2 col-lg-2">-->
+<!--                        &lt;!&ndash;                        <div class="logo">&ndash;&gt;-->
+<!--                        &lt;!&ndash;                            <a href="backstage.html"><img src="static/picture/logo.png" alt="logo"></a>&ndash;&gt;-->
+<!--                        &lt;!&ndash;                        </div>&ndash;&gt;-->
+<!--                    </div>-->
+<!--                    <div class="col-xl-8 col-lg-7">-->
+
+<!--                        <div class="main-menu text-right text-xl-right">-->
+
+<!--                        </div>-->
+
+<!--                    </div>-->
+
+<!--                    <div class="col-xl-2 col-lg-3 d-none d-lg-block mt-20 mb-20">-->
+<!--                        <div class="header-social text-right">-->
+<!--                            <span>-->
+
+<!--                                <a href="#" title="登录"><i class="fa fa-user"></i></a>-->
+<!--                                <a href="#" class="menu-tigger"><i class="fas fa-search"></i></a>-->
+<!--                               </span>-->
+<!--                            &lt;!&ndash;  /social media icon redux &ndash;&gt;-->
+<!--                        </div>-->
+
+<!--                    </div>-->
+
+<!--                    <div class="col-12">-->
+<!--                        <div class="mobile-menu"></div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</header>-->
+<!-- header-end -->
+
+<!-- main-area -->
+<main>
+
+    <!-- search-popup -->
+    <div class="modal fade bs-example-modal-lg search-bg popup1" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content search-popup">
+                <div class="text-center">
+                    <a href="#" class="close2" data-dismiss="modal" aria-label="Close">× close</a>
+                </div>
+                <div class="row search-outer">
+                    <div class="col-md-11"><input type="text" placeholder="Search for products..."/></div>
+                    <div class="col-md-1 text-right"><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /search-popup -->
+    <!-- breadcrumb-area -->
+    <section class="breadcrumb-area d-flex align-items-center">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-xl-12 col-lg-12">
+                    <div class="breadcrumb-wrap text-left">
+                        <div class="breadcrumb-title">
+                            <h2 style="color: black">{{article.title}}</h2>
+                            <div class="breadcrumb-wrap">
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item">{{article.author}}</li>
+                                        <li class="breadcrumb-item active" aria-current="page">{{article.addtime}}</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- breadcrumb-area-end -->
+    <!-- Project Detail -->
+    <section class="project-detail">
+        <div class="container">
+            <!-- Upper Box -->
+            <div class="upper-box">
+                <div class="single-item-carousel owl-carousel owl-theme">
+                    <figure class="image"><img src="../{{article.picture}}" style="width:50%;height:50%" ></figure>
+                </div>
+            </div>
+
+            <!-- Lower Content -->
+            <div class="lower-content">
+                <div class="row">
+                    <div class="text-column col-lg-12 col-md-12 col-sm-12" style="font-size: 20px">
+                        <div class="inner-column">
+                            <p >{{article.content|safe}}</p>
+                            <!--必须加上safe不然不转译html-->
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+    </section>
+    <!--End Project Detail -->
+
+
+</main>
+<!-- main-area-end -->
+<!-- JS here -->
+<script src="/public/javascripts/modernizr-3.5.0.min.js"></script>
+<script src="/public/javascripts/jquery-3.6.0.min.js"></script>
+<!--<script src="/public/javascripts/popper.min.js"></script>-->
+<script src="/public/javascripts/bootstrap.min.js"></script>
+<!--<script src="/public/javascripts/one-page-nav-min.js"></script>-->
+<script src="/public/javascripts/slick.min.js"></script>
+<!--<script src="/public/javascripts/ajax-form.js"></script>-->
+<!--<script src="/public/javascripts/paroller.js"></script>-->
+<!--<script src="/public/javascripts/wow.min.js"></script>-->
+<!--<script src="/public/javascripts/js_isotope.pkgd.min.js"></script>-->
+<!--<script src="/public/javascripts/imagesloaded.min.js"></script>-->
+<!--<script src="/public/javascripts/parallax.min.js"></script>-->
+
+<!--<script src="/public/javascripts/jquery.counterup.min.js"></script>-->
+<!--<script src="/public/javascripts/jquery.scrollup.min.js"></script>-->
+<script src="/public/javascripts/jquery.meanmenu.min.js"></script>
+<!--<script src="/public/javascripts/parallax-scroll.js"></script>-->
+<!--<script src="/public/javascripts/jquery.magnific-popup.min.js"></script>-->
+<!--<script src="/public/javascripts/element-in-view.js"></script>-->
+<script src="/public/javascripts/main.js"></script>
+</body>
+</html>

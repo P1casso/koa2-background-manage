@@ -1,0 +1,38 @@
+{% extends "views/admin/index.html" %}
+{% block right %}
+<div id="editUser">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <p class="card-description" style="color: red" a>
+                    {{info}}
+                </p>
+    <form class="forms-sample" action="/admin/updateUser/?id={{old_user.id}}" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="username">用户名</label>
+            <input type="text" class="form-control col-4" name="username" id="username" value="{{old_user.username}}" required>
+        </div>
+        <div class="form-group">
+            <label for="phone">电话号码</label>
+            <input type="phone" class="form-control col-4" name="phone" id="phone" value="{{old_user.phone}}" required>
+        </div>
+        <div class="form-group">
+            <label >角色</label>
+            <div class="col-4">
+                <select class="form-control" name="roleid" required="required">
+                    <option>请选择</option>
+                    {% for role in roles %}
+                    <option value="{{role.id}}">{{role.rolename}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary mr-2">更新</button>
+        <button class="btn btn-light">返回</button>
+    </form>
+</div>
+        </div>
+    </div>
+</div>
+    {% endblock %}

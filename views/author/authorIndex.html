@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>创作中心</title>
+    <link rel="stylesheet" href="../vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="../public/static/css/style.css">
+</head>
+<body>
+<div class="container-scroller">
+    <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+        <div class="navbar-brand-wrapper d-flex justify-content-center">
+            <div class="navbar-brand-inner-wrapper d-flex justify-content-between align-items-center w-100">
+                <h4>创作中心</h4>
+            </div>
+        </div>
+        <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
+
+            <ul class="navbar-nav navbar-nav-right">
+
+                <li class="nav-item nav-profile">
+                    <a class="nav-link" data-toggle="dropdown" id="profileDropdown">
+                        <span class="nav-profile-name">{{username}}</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container-fluid page-body-wrapper">
+        <nav class="sidebar sidebar-offcanvas" id="sidebar">
+            <ul class="nav">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/author/articleManage">
+                        <i class="mdi mdi-newspaper menu-icon"></i>
+                        <span class="menu-title">我的文章</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/author/addArticles">
+                        <i class="mdi mdi-library-plus menu-icon"></i>
+                        <span class="menu-title">新建文章</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/author/CommentMe?id={{user.id}}">
+                        <i class="mdi mdi-comment-account menu-icon"></i>
+                        <span class="menu-title">评论我的</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/myInfo">
+                        <i class="mdi mdi-backburger menu-icon"></i>
+                        <span class="menu-title">返回</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin/logout">
+                        <i class="mdi mdi-logout menu-icon"></i>
+                        <span class="menu-title">退出登录</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="main-panel">
+            <div class="content-wrapper">
+                {% block right %}
+                {{message}}
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>

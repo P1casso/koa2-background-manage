@@ -1,0 +1,56 @@
+{% extends "views/author/authorIndex.html" %}
+{% block right %}
+
+<script src="/ckeditor/ckeditor.js"></script>
+<script>
+    function show(file) {
+        const reader = new FileReader();	// 实例化一个FileReader对象，用于读取文件
+        const img = document.getElementById('newImg'); 	// 获取要显示图片的标签
+        reader.onload = function (evt) {
+            img.src = evt.target.result;
+        }
+        reader.readAsDataURL(file.files[0]);
+    }
+</script>
+{% for   article in articles %}
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <form action="updateArticle?id={{article.id}}" enctype="multipart/form-data" method="post" class="forms-sample">
+                <div class="form-group">
+                    <label>文章标题</label>
+                    <input type="text" class="form-control" name="title" required value="{{article.title}}">
+                </div>
+                <div class="form-group">
+                    <label for="type">文章分类</label>
+                    <select class="form-control" id="type" name="type">
+                        {% for newType in newTypes %}
+                        <option value="{{newType.id}}">{{newType.typename}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>选择封面图片</label>
+                    <div class="input-group col-xs-12">
+                        <input type="file" id="picture" name="picture" class="form-control file-upload-info" value="{{article.picture}}"
+                               onchange="show(this)">
+
+                        </div>
+                    <div><br>
+                        <img id="newImg" src="../{{article.picture}}" width="30%" height="30%"></div>
+
+                </div>
+                <div class="form-group">
+                    <textarea name="content" id="content"> {{article.content}}</textarea>
+                    <script>
+                        CKEDITOR.replace('content');
+                    </script>
+                </div>
+                <button type="submit" class="btn btn-primary mr-2" onclick="submit()">更新</button>
+                <button class="btn btn-light" onclick="history.back()">返回</button>
+            </form>
+        </div>
+    </div>
+</div>
+{%endfor%}
+{% endblock %}

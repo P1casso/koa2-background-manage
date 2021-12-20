@@ -1,13 +1,59 @@
 <!DOCTYPE html>
-<html lang="zxx">
+<html>
 
 <head>
     <title>注册</title>
-
     <meta charset="UTF-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="ie=edge" http-equiv="X-UA-Compatible">
     <link href="public/stylesheets/login.css" rel="stylesheet" type="text/css">
+    <link href="public/javascripts/register.js" rel="script">
+<!--    <script>-->
+<!--        //用户名校验-->
+<!--        function validateUsername() {-->
+<!--            const name = document.getElementById("username").value;-->
+<!--            const ErrorForUsername = document.getElementById("ErrorForUsername");-->
+<!--            if (name.length < 4) {-->
+<!--                ErrorForUsername.innerHTML = "用户名必须为4-16位字符，请重新填写";-->
+<!--                return false;-->
+<!--            } else {-->
+<!--                ErrorForUsername.innerHTML = "";-->
+<!--                return true;-->
+<!--            }-->
+<!--        }-->
+
+<!--        function validatePassword() {-->
+<!--            const password = document.getElementById("password").value;-->
+<!--            const ErrorForPassword = document.getElementById("ErrorForPassword");-->
+
+<!--            if (password.length >= 6) {-->
+<!--                ErrorForPassword.innerHTML = "";-->
+<!--                return true;-->
+<!--            } else {-->
+<!--                ErrorForPassword.innerHTML = "密码不能少于6位";-->
+<!--                return false;-->
+<!--            }-->
+<!--        }-->
+
+<!--        function validatePhone() {-->
+<!--            const phone = document.getElementById("phone").value;-->
+
+<!--            const ErrorForPhone = document.getElementById("ErrorForPhone");-->
+<!--            if (phone.length !== 11) {-->
+<!--                ErrorForPhone.innerHTML = "请输入正确的手机号码";-->
+<!--                return false;-->
+<!--            } else {-->
+<!--                ErrorForPhone.innerHTML = "";-->
+<!--                return true;-->
+<!--            }-->
+<!--        }-->
+
+<!--        function validate() {-->
+<!--            if (validateUsername() && validatePassword() && validatePhone()) {-->
+<!--                return true;-->
+<!--            } else {-->
+<!--                return false;-->
+<!--            }-->
+<!--        }-->
+<!--    </script>-->
 </head>
 
 <body>
@@ -16,29 +62,34 @@
     <div class="container">
         <div class="w3l-form-info">
             <div class="w3_info">
-                <form action="/register" method="post" name="user">
+                <form action="/registerCheck" method="post" name="user" onsubmit="return validate()" enctype="multipart/form-data">
+                    <p style="color: red">{{info}}</p>
                     <div class="input-group">
                         用户名：
                         <span><i aria-hidden="true" class="fas fa-user"></i></span>
-                        <input autocomplete="off" name="username" type="text">
+                        <input autocomplete="off" name="username" id="username" type="text" onblur="validateUsername()">
+                        <h id="ErrorForUsername"></h>
                     </div>
                     <div class="input-group">
                         密码：
                         <span><i aria-hidden="true" class="fas fa-key"></i></span>
-                        <input name="password" type="Password">
+                        <input name="password" id="password" type="Password" onblur="validatePassword()">
+                        <h id="ErrorForPassword"></h>
                     </div>
                     <div class="input-group">
                         手机号：
                         <span><i aria-hidden="true" class="fas fa-user"></i></span>
-                        <input autocomplete="off" name="phone" type="text">
+                        <input autocomplete="off" name="phone" id="phone" type="text" onblur="validatePhone()">
+                        <h id="ErrorForPhone"></h>
                     </div>
-                    <button class="btn btn-primary btn-block" type="submit">Login</button>
-                    <p>已经有了账号？ 点此注册</p>
+                    <button class="btn btn-primary btn-block" id="register">注册</button>
+                    <p>已经有了账号？ 点此<a href="/login">登录</a> </p>
                 </form>
             </div>
         </div>
     </div>
 </div>
+
 </body>
 
 </html>
